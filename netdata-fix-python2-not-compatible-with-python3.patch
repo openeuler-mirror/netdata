@@ -1,0 +1,25 @@
+From 913bc3e605a85dae532394f1010f640175367ab4 Mon Sep 17 00:00:00 2001
+From: baizg1107 <preloyalwhite@163.com>
+Date: Tue, 22 Jun 2021 19:25:16 +0800
+Subject: [PATCH] netdata fix python2 not compatible with python3
+
+---
+ collectors/python.d.plugin/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/collectors/python.d.plugin/Makefile.am b/collectors/python.d.plugin/Makefile.am
+index ad72cfa..3686040 100644
+--- a/collectors/python.d.plugin/Makefile.am
++++ b/collectors/python.d.plugin/Makefile.am
+@@ -138,7 +138,7 @@ dist_third_party_DATA = \
+     python_modules/third_party/monotonic.py \
+     $(NULL)
+ 
+-pythonyaml2dir=$(pythonmodulesdir)/pyyaml2
++pythonyaml2dir=$(pythonmodulesdir)/pyyaml3
+ dist_pythonyaml2_DATA = \
+     python_modules/pyyaml2/__init__.py \
+     python_modules/pyyaml2/composer.py \
+-- 
+2.27.0
+
