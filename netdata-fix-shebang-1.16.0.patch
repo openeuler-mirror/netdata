@@ -1,0 +1,444 @@
+Fix shebang according to
+https://docs.fedoraproject.org/en-US/packaging-guidelines/#_shebang_lines
+
+diff -rup a/backends/nc-backend.sh b/backends/nc-backend.sh
+--- a/backends/nc-backend.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/backends/nc-backend.sh	2019-07-09 12:14:38.544596979 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+diff -rup a/collectors/cgroups.plugin/cgroup-name.sh.in b/collectors/cgroups.plugin/cgroup-name.sh.in
+--- a/collectors/cgroups.plugin/cgroup-name.sh.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/cgroups.plugin/cgroup-name.sh.in	2019-07-09 12:14:38.560597055 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #shellcheck disable=SC2001
+ 
+ # netdata
+diff -rup a/collectors/cgroups.plugin/cgroup-network-helper.sh b/collectors/cgroups.plugin/cgroup-network-helper.sh
+--- a/collectors/cgroups.plugin/cgroup-network-helper.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/cgroups.plugin/cgroup-network-helper.sh	2019-07-09 12:14:38.559597050 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # shellcheck disable=SC1117
+ 
+ # cgroup-network-helper.sh
+diff -rup a/collectors/charts.d.plugin/charts.d.dryrun-helper.sh b/collectors/charts.d.plugin/charts.d.dryrun-helper.sh
+--- a/collectors/charts.d.plugin/charts.d.dryrun-helper.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/charts.d.plugin/charts.d.dryrun-helper.sh	2019-07-09 12:14:38.552597017 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # shellcheck disable=SC2181
+diff -rup a/collectors/charts.d.plugin/charts.d.plugin.in b/collectors/charts.d.plugin/charts.d.plugin.in
+--- a/collectors/charts.d.plugin/charts.d.plugin.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/charts.d.plugin/charts.d.plugin.in	2019-07-09 12:14:38.554597026 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # netdata
+diff -rup a/collectors/fping.plugin/fping.plugin.in b/collectors/fping.plugin/fping.plugin.in
+--- a/collectors/fping.plugin/fping.plugin.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/fping.plugin/fping.plugin.in	2019-07-09 12:14:38.546596989 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # netdata
+diff -rup a/collectors/ioping.plugin/ioping.plugin.in b/collectors/ioping.plugin/ioping.plugin.in
+--- a/collectors/ioping.plugin/ioping.plugin.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/ioping.plugin/ioping.plugin.in	2019-07-09 12:14:38.550597008 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # netdata
+diff -rup a/collectors/node.d.plugin/node.d.plugin.in b/collectors/node.d.plugin/node.d.plugin.in
+--- a/collectors/node.d.plugin/node.d.plugin.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/node.d.plugin/node.d.plugin.in	2019-07-09 12:14:38.562597064 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ ':' //; exec "$(command -v nodejs || command -v node || echo "ERROR node IS NOT AVAILABLE IN THIS SYSTEM")" "$0" "$@"
+ 
+ // shebang hack from:
+diff -rup a/collectors/python.d.plugin/python.d.plugin.in b/collectors/python.d.plugin/python.d.plugin.in
+--- a/collectors/python.d.plugin/python.d.plugin.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/python.d.plugin/python.d.plugin.in	2019-07-09 12:14:38.557597040 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ '''':;
+ if [[ "$OSTYPE" == "darwin"* ]]; then
+     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+diff -rup a/collectors/python.d.plugin/python_modules/third_party/boinc_client.py b/collectors/python.d.plugin/python_modules/third_party/boinc_client.py
+--- a/collectors/python.d.plugin/python_modules/third_party/boinc_client.py	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/python.d.plugin/python_modules/third_party/boinc_client.py	2019-07-09 12:14:38.652597487 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#
+ # -*- coding: utf-8 -*-
+ #
+ # client.py - Somewhat higher-level GUI_RPC API for BOINC core client
+diff -rup a/collectors/tc.plugin/tc-qos-helper.sh.in b/collectors/tc.plugin/tc-qos-helper.sh.in
+--- a/collectors/tc.plugin/tc-qos-helper.sh.in	2019-07-08 13:52:29.000000000 +0200
++++ b/collectors/tc.plugin/tc-qos-helper.sh.in	2019-07-09 12:14:38.548596998 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # netdata
+ # real-time performance and health monitoring, done right!
+diff -rup a/contrib/rhel/build-netdata-rpm.sh b/contrib/rhel/build-netdata-rpm.sh
+--- a/contrib/rhel/build-netdata-rpm.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/contrib/rhel/build-netdata-rpm.sh	2019-07-09 12:14:38.564597073 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # docker run -it --rm centos:6.9 /bin/sh
+ # yum -y install rpm-build redhat-rpm-config yum-utils autoconf automake curl gcc git libmnl-devel libuuid-devel make pkgconfig zlib-devel
+diff -rup a/contrib/sles11/alarm-notify-basic.bash3.sh b/contrib/sles11/alarm-notify-basic.bash3.sh
+--- a/contrib/sles11/alarm-notify-basic.bash3.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/contrib/sles11/alarm-notify-basic.bash3.sh	2019-07-09 12:14:38.566597083 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # basic version of netdata notifier to work with bash3
+ # only mail and syslog destinations are supported, one recipient each
+diff -rup a/coverity-install.sh b/coverity-install.sh
+--- a/coverity-install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/coverity-install.sh	2019-07-09 12:14:38.567597088 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # Coverity installation script
+ #
+ # Copyright: SPDX-License-Identifier: GPL-3.0-or-later
+diff -rup a/coverity-scan.sh b/coverity-scan.sh
+--- a/coverity-scan.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/coverity-scan.sh	2019-07-09 12:14:38.569597097 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # Coverity scan script
+ #
+ # To run this script you need to provide API token. This can be done either by:
+diff -rup a/cppcheck.sh b/cppcheck.sh
+--- a/cppcheck.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/cppcheck.sh	2019-07-09 12:14:38.571597106 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # echo >>/tmp/cppcheck.log "cppcheck ${*}"
+ 
+diff -rup a/daemon/anonymous-statistics.sh.in b/daemon/anonymous-statistics.sh.in
+--- a/daemon/anonymous-statistics.sh.in	2019-07-08 13:52:29.000000000 +0200
++++ b/daemon/anonymous-statistics.sh.in	2019-07-09 12:14:38.619597332 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ 
+ # Valid actions:
+ 
+diff -rup a/daemon/system-info.sh b/daemon/system-info.sh
+--- a/daemon/system-info.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/daemon/system-info.sh	2019-07-09 12:14:38.621597341 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ 
+ # -------------------------------------------------------------------------------------------------
+ # detect the kernel
+diff -rup a/diagrams/build.sh b/diagrams/build.sh
+--- a/diagrams/build.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/diagrams/build.sh	2019-07-09 12:14:38.572597111 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ path=$(dirname "$0")
+diff -rup a/health/notifications/alarm-email.sh b/health/notifications/alarm-email.sh
+--- a/health/notifications/alarm-email.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/health/notifications/alarm-email.sh	2019-07-09 12:14:38.575597125 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # OBSOLETE - REPLACED WITH
+diff -rup a/health/notifications/alarm-notify.sh.in b/health/notifications/alarm-notify.sh.in
+--- a/health/notifications/alarm-notify.sh.in	2019-07-08 13:52:29.000000000 +0200
++++ b/health/notifications/alarm-notify.sh.in	2019-07-09 12:14:38.579597144 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #shellcheck source=/dev/null disable=SC2086,SC2154
+ 
+ # netdata
+diff -rup a/health/notifications/alarm-test.sh b/health/notifications/alarm-test.sh
+--- a/health/notifications/alarm-test.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/health/notifications/alarm-test.sh	2019-07-09 12:14:38.574597120 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ 
+ # netdata
+ # real-time performance and health monitoring, done right!
+diff -rup a/netdata-installer.sh b/netdata-installer.sh
+--- a/netdata-installer.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/netdata-installer.sh	2019-07-09 12:14:38.582597158 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ # shellcheck disable=SC2046,SC2086,SC2166
+ 
+diff -rup a/packaging/docker/build.sh b/packaging/docker/build.sh
+--- a/packaging/docker/build.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/docker/build.sh	2019-07-09 12:14:38.594597214 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ #
+ # Copyright: SPDX-License-Identifier: GPL-3.0-or-later
+diff -rup a/packaging/docker/check_login.sh b/packaging/docker/check_login.sh
+--- a/packaging/docker/check_login.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/docker/check_login.sh	2019-07-09 12:14:38.595597219 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ # This is a credential checker script, to help get early input on docker credentials status
+ # If these are wrong, then build/publish has no point running
+diff -rup a/packaging/docker/publish.sh b/packaging/docker/publish.sh
+--- a/packaging/docker/publish.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/docker/publish.sh	2019-07-09 12:14:38.592597205 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ # Cross-arch docker publish helper script
+ # Needs docker in version >18.02 due to usage of manifests
+diff -rup a/packaging/docker/run.sh b/packaging/docker/run.sh
+--- a/packaging/docker/run.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/docker/run.sh	2019-07-09 12:14:38.591597200 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ # Entry point script for netdata
+ #
+diff -rup a/packaging/installer/kickstart.sh b/packaging/installer/kickstart.sh
+--- a/packaging/installer/kickstart.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/installer/kickstart.sh	2019-07-09 12:14:38.625597360 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ #
+ # Run me with:
+diff -rup a/packaging/installer/kickstart-static64.sh b/packaging/installer/kickstart-static64.sh
+--- a/packaging/installer/kickstart-static64.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/installer/kickstart-static64.sh	2019-07-09 12:14:38.623597350 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ # shellcheck disable=SC1117,SC2039,SC2059,SC2086
+ 
+diff -rup a/packaging/installer/netdata-uninstaller.sh b/packaging/installer/netdata-uninstaller.sh
+--- a/packaging/installer/netdata-uninstaller.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/installer/netdata-uninstaller.sh	2019-07-09 12:14:38.587597181 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #shellcheck disable=SC2181
+ #
+ # This is the netdata uninstaller script
+diff -rup a/packaging/installer/netdata-updater.sh b/packaging/installer/netdata-updater.sh
+--- a/packaging/installer/netdata-updater.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/installer/netdata-updater.sh	2019-07-09 12:14:38.584597167 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #shellcheck disable=SC2164
+ 
+ # this script will uninstall netdata
+diff -rup a/packaging/makeself/build.sh b/packaging/makeself/build.sh
+--- a/packaging/makeself/build.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/build.sh	2019-07-09 12:14:38.626597365 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # -----------------------------------------------------------------------------
+diff -rup a/packaging/makeself/build-x86_64-static.sh b/packaging/makeself/build-x86_64-static.sh
+--- a/packaging/makeself/build-x86_64-static.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/build-x86_64-static.sh	2019-07-09 12:14:38.597597228 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "$0")/../installer/functions.sh || exit 1
+diff -rup a/packaging/makeself/functions.sh b/packaging/makeself/functions.sh
+--- a/packaging/makeself/functions.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/functions.sh	2019-07-09 12:14:38.614597308 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ # -----------------------------------------------------------------------------
+diff -rup a/packaging/makeself/install-alpine-packages.sh b/packaging/makeself/install-alpine-packages.sh
+--- a/packaging/makeself/install-alpine-packages.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/install-alpine-packages.sh	2019-07-09 12:14:38.628597374 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ #
+ # Installation script for the alpine host
+ # to prepare the static binary
+diff -rup a/packaging/makeself/install-or-update.sh b/packaging/makeself/install-or-update.sh
+--- a/packaging/makeself/install-or-update.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/install-or-update.sh	2019-07-09 12:14:38.612597299 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/functions.sh
+diff -rup a/packaging/makeself/jobs/10-prepare-destination.install.sh b/packaging/makeself/jobs/10-prepare-destination.install.sh
+--- a/packaging/makeself/jobs/10-prepare-destination.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/10-prepare-destination.install.sh	2019-07-09 12:14:38.600597243 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/50-bash-4.4.18.install.sh b/packaging/makeself/jobs/50-bash-4.4.18.install.sh
+--- a/packaging/makeself/jobs/50-bash-4.4.18.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/50-bash-4.4.18.install.sh	2019-07-09 12:14:38.610597290 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/50-curl-7.60.0.install.sh b/packaging/makeself/jobs/50-curl-7.60.0.install.sh
+--- a/packaging/makeself/jobs/50-curl-7.60.0.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/50-curl-7.60.0.install.sh	2019-07-09 12:14:38.605597266 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/50-fping-4.2.install.sh b/packaging/makeself/jobs/50-fping-4.2.install.sh
+--- a/packaging/makeself/jobs/50-fping-4.2.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/50-fping-4.2.install.sh	2019-07-09 12:14:38.607597276 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/50-ioping-1.1.install.sh b/packaging/makeself/jobs/50-ioping-1.1.install.sh
+--- a/packaging/makeself/jobs/50-ioping-1.1.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/50-ioping-1.1.install.sh	2019-07-09 12:14:38.602597252 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/70-netdata-git.install.sh b/packaging/makeself/jobs/70-netdata-git.install.sh
+--- a/packaging/makeself/jobs/70-netdata-git.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/70-netdata-git.install.sh	2019-07-09 12:14:38.608597280 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . ${NETDATA_MAKESELF_PATH}/functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/jobs/99-makeself.install.sh b/packaging/makeself/jobs/99-makeself.install.sh
+--- a/packaging/makeself/jobs/99-makeself.install.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/jobs/99-makeself.install.sh	2019-07-09 12:14:38.603597257 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ . $(dirname "${0}")/../functions.sh "${@}" || exit 1
+diff -rup a/packaging/makeself/run-all-jobs.sh b/packaging/makeself/run-all-jobs.sh
+--- a/packaging/makeself/run-all-jobs.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/makeself/run-all-jobs.sh	2019-07-09 12:14:38.598597233 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # SPDX-License-Identifier: GPL-3.0-or-later
+ 
+ LC_ALL=C
+diff -rup a/packaging/manual_nightly_deployment.sh b/packaging/manual_nightly_deployment.sh
+--- a/packaging/manual_nightly_deployment.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/packaging/manual_nightly_deployment.sh	2019-07-09 12:14:38.589597191 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ # This tool allows netdata team to manually deploy nightlies
+ # It emulates the nightly operations required for a new version to be published for our users
+diff -rup a/system/edit-config.in b/system/edit-config.in
+--- a/system/edit-config.in	2019-07-08 13:52:29.000000000 +0200
++++ b/system/edit-config.in	2019-07-09 12:14:38.630597383 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ 
+ [ -f /etc/profile ] && . /etc/profile
+ 
+diff -rup a/system/netdata-lsb.in b/system/netdata-lsb.in
+--- a/system/netdata-lsb.in	2019-07-08 13:52:29.000000000 +0200
++++ b/system/netdata-lsb.in	2019-07-09 12:14:38.615597313 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ #
+ # Netdata LSB start script
+ #
+diff -rup a/tests/health_mgmtapi/health-cmdapi-test.sh.in b/tests/health_mgmtapi/health-cmdapi-test.sh.in
+--- a/tests/health_mgmtapi/health-cmdapi-test.sh.in	2019-07-08 13:52:29.000000000 +0200
++++ b/tests/health_mgmtapi/health-cmdapi-test.sh.in	2019-07-09 12:14:38.617597322 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env bash
++#!/usr/bin/bash
+ # shellcheck disable=SC1117,SC2034,SC2059,SC2086,SC2181
+ 
+ NETDATA_VARLIB_DIR="@varlibdir_POST@"
+diff -rup a/tests/updater_checks.sh b/tests/updater_checks.sh
+--- a/tests/updater_checks.sh	2019-07-08 13:52:29.000000000 +0200
++++ b/tests/updater_checks.sh	2019-07-09 12:14:38.632597393 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/usr/bin/sh
+ #
+ # Wrapper script that installs the required dependencies
+ # for the BATS script to run successfully
