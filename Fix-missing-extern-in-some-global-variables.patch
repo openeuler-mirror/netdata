@@ -1,0 +1,125 @@
+From c65f57af0714558294c1ad1b9568077720fb282b Mon Sep 17 00:00:00 2001
+From: Thiago Marques <thiagoftsm@gmail.com>
+Date: Tue, 28 Jan 2020 13:59:20 +0000
+Subject: [PATCH] missing_extern: Fix missing
+
+Fix few externs that were missing in global variables
+
+---
+ daemon/common.c            | 2 +-
+ daemon/common.h            | 2 +-
+ health/health.c            | 1 +
+ health/health.h            | 2 +-
+ libnetdata/health/health.c | 4 +++-
+ libnetdata/health/health.h | 2 +-
+ web/api/web_api_v1.c       | 2 ++
+ web/api/web_api_v1.h       | 2 +-
+ 8 files changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/daemon/common.c b/daemon/common.c
+index e28f6cf..67497a4 100644
+--- a/daemon/common.c
++++ b/daemon/common.c
+@@ -13,4 +13,4 @@ char *netdata_configured_varlib_dir          = VARLIB_DIR;
+ char *netdata_configured_home_dir            = CACHE_DIR;
+ char *netdata_configured_host_prefix         = NULL;
+ char *netdata_configured_timezone            = NULL;
+-
++int netdata_ready;
+diff --git a/daemon/common.h b/daemon/common.h
+index a15ddb8..d02c0d9 100644
+--- a/daemon/common.h
++++ b/daemon/common.h
+@@ -80,6 +80,6 @@ extern char *netdata_configured_host_prefix;
+ extern char *netdata_configured_timezone;
+ extern int netdata_anonymous_statistics_enabled;
+ 
+-int netdata_ready;
++extern int netdata_ready;
+ 
+ #endif /* NETDATA_COMMON_H */
+diff --git a/health/health.c b/health/health.c
+index 55bd728..559da63 100644
+--- a/health/health.c
++++ b/health/health.c
+@@ -9,6 +9,7 @@ struct health_cmdapi_thread_status {
+ };
+ 
+ unsigned int default_health_enabled = 1;
++char *silencers_filename;
+ 
+ // ----------------------------------------------------------------------------
+ // health initialization
+diff --git a/health/health.h b/health/health.h
+index 6920d12..d116da2 100644
+--- a/health/health.h
++++ b/health/health.h
+@@ -50,7 +50,7 @@ extern unsigned int default_health_enabled;
+ 
+ #define HEALTH_SILENCERS_MAX_FILE_LEN 10000
+ 
+-char *silencers_filename;
++extern char *silencers_filename;
+ 
+ extern void health_init(void);
+ extern void *health_main(void *ptr);
+diff --git a/libnetdata/health/health.c b/libnetdata/health/health.c
+index b93de8b..40c4e3d 100644
+--- a/libnetdata/health/health.c
++++ b/libnetdata/health/health.c
+@@ -1,5 +1,7 @@
+ #include "health.h"
+ 
++SILENCERS *silencers;
++
+ /**
+  * Create Silencer
+  *
+@@ -167,4 +169,4 @@ int health_initialize_global_silencers() {
+     silencers->silencers=NULL;
+ 
+     return 0;
+-}
+\ No newline at end of file
++}
+diff --git a/libnetdata/health/health.h b/libnetdata/health/health.h
+index a3dc077..f7580ed 100644
+--- a/libnetdata/health/health.h
++++ b/libnetdata/health/health.h
+@@ -44,7 +44,7 @@ typedef struct silencers {
+     SILENCER *silencers;
+ } SILENCERS;
+ 
+-SILENCERS *silencers;
++extern SILENCERS *silencers;
+ 
+ extern SILENCER *create_silencer(void);
+ extern int health_silencers_json_read_callback(JSON_ENTRY *e);
+diff --git a/web/api/web_api_v1.c b/web/api/web_api_v1.c
+index 7c0d728..d5c0d04 100644
+--- a/web/api/web_api_v1.c
++++ b/web/api/web_api_v1.c
+@@ -2,6 +2,8 @@
+ 
+ #include "web_api_v1.h"
+ 
++char *api_secret;
++
+ static struct {
+     const char *name;
+     uint32_t hash;
+diff --git a/web/api/web_api_v1.h b/web/api/web_api_v1.h
+index 70b7817..e9f0401 100644
+--- a/web/api/web_api_v1.h
++++ b/web/api/web_api_v1.h
+@@ -26,6 +26,6 @@ extern int web_client_api_request_v1(RRDHOST *host, struct web_client *w, char *
+ extern void web_client_api_v1_init(void);
+ extern void web_client_api_v1_management_init(void);
+ 
+-char *api_secret;
++extern char *api_secret;
+ 
+ #endif //NETDATA_WEB_API_V1_H
+-- 
+2.30.0
+
