@@ -5,7 +5,7 @@
 %global upver        1.16.0
 Name:                netdata
 Version:             %{upver}%{?rcver:~%{rcver}}
-Release:             1
+Release:             2
 Summary:             Real-time performance monitoring
 License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY and MIT and WTFPL
 URL:                 https://github.com/%{name}/%{name}/
@@ -17,6 +17,7 @@ Patch0:              netdata-fix-shebang-1.16.0.patch
 Patch1:		     netdata-fix-python2-not-compatible-with-python3.patch
 # Remove embedded font
 Patch10:             netdata-remove-fonts-1.12.0.patch
+Patch11:             Fix-missing-extern-in-some-global-variables.patch
 BuildRequires:       zlib-devel git autoconf automake pkgconfig libuuid-devel freeipmi-devel httpd
 BuildRequires:       cppcheck gcc tinyxml2
 Requires:            nodejs glyphicons-halflings-fonts
@@ -61,6 +62,7 @@ freeipmi plugin for netdata
 %patch1 -p1
 # Remove embedded font(added in requires)
 %patch10 -p1
+%patch11 -p1
 rm -rf web/fonts
 
 %build
@@ -216,5 +218,8 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
+* Wed Aug 04 2021 sunguoshuai <sunguoshuai@huawei.com> - 1.16.0 - 2
+- Fix missing extern in some global variables
+
 * Thu Jun 24 2021 baizhonggui <baizhonggui@huawei.com> - 1.16.0 - 1
 - package init
