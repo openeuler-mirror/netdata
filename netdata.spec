@@ -5,9 +5,9 @@
 %global upver        1.16.0
 Name:                netdata
 Version:             %{upver}%{?rcver:~%{rcver}}
-Release:             2
+Release:             3
 Summary:             Real-time performance monitoring
-License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY and MIT and WTFPL
+License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY-4.0 and MIT and WTFPL
 URL:                 https://github.com/%{name}/%{name}/
 Source0:             https://github.com/%{name}/%{name}/archive/v%{upver}%{?rcver:-%{rcver}}/%{name}-%{upver}%{?rcver:-%{rcver}}.tar.gz
 Source1:             netdata.tmpfiles.conf
@@ -218,6 +218,9 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
+* Thu Aug 19 2021 baizhonggui <baizhonggui@huawei.com> - 1.16.0 - 3
+- Fix python2 and python3 syntax is incompatible
+
 * Wed Aug 04 2021 sunguoshuai <sunguoshuai@huawei.com> - 1.16.0 - 2
 - Fix missing extern in some global variables
 
