@@ -5,7 +5,7 @@
 %global upver        1.16.0
 Name:                netdata
 Version:             %{upver}%{?rcver:~%{rcver}}
-Release:             3
+Release:             4
 Summary:             Real-time performance monitoring
 License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY-4.0 and MIT and WTFPL
 URL:                 https://github.com/%{name}/%{name}/
@@ -20,7 +20,7 @@ Patch10:             netdata-remove-fonts-1.12.0.patch
 Patch11:             Fix-missing-extern-in-some-global-variables.patch
 BuildRequires:       zlib-devel git autoconf automake pkgconfig libuuid-devel freeipmi-devel httpd
 BuildRequires:       cppcheck gcc tinyxml2
-Requires:            nodejs glyphicons-halflings-fonts
+Requires:            nodejs
 %if %{with systemd}
 BuildRequires:       systemd
 %{?systemd_requires}
@@ -218,6 +218,9 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
+* Thu Sep 30 2021 xuping <xuping33@huawei.com> - 1.16.0 - 4
+- remove install requires glyphicons-halfings-fonts
+
 * Thu Aug 19 2021 baizhonggui <baizhonggui@huawei.com> - 1.16.0 - 3
 - Fix python2 and python3 syntax is incompatible
 
