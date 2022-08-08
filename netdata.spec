@@ -4,7 +4,7 @@
 # Build release candidate
 %global upver        1.16.0
 Name:                netdata
-Version:             %{upver}%{?rcver:~%{rcver}}
+Version:             1.16.0
 Release:             4
 Summary:             Real-time performance monitoring
 License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY-4.0 and MIT and WTFPL
