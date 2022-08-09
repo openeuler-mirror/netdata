@@ -218,7 +218,7 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
-* Tue Jun 21 2022 Chenyx <chenyixiong3@huawei.com> - 1.16.0 - 4
+* Tue Jun 21 2022 Chenyx <chenyixiong3@huawei.com> - 1.16.0-4
 - License compliance rectification
 
 * Sat Jan 29 2022 caodongxia <caodongxia@huawei.com> - 1.16.0 - 3
