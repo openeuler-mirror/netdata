@@ -4,10 +4,10 @@
 # Build release candidate
 %global upver        1.16.0
 Name:                netdata
-Version:             %{upver}%{?rcver:~%{rcver}}
-Release:             3
+Version:             1.16.0
+Release:             4
 Summary:             Real-time performance monitoring
-License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY and MIT and WTFPL
+License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY-4.0 and MIT and WTFPL
 URL:                 https://github.com/%{name}/%{name}/
 Source0:             https://github.com/%{name}/%{name}/archive/v%{upver}%{?rcver:-%{rcver}}/%{name}-%{upver}%{?rcver:-%{rcver}}.tar.gz
 Source1:             netdata.tmpfiles.conf
@@ -218,6 +218,9 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
+* Tue Jun 21 2022 Chenyx <chenyixiong3@huawei.com> - 1.16.0-4
+- License compliance rectification
+
 * Sat Jan 29 2022 caodongxia <caodongxia@huawei.com> - 1.16.0 - 3
 - remove install requires glyphicons-halfings-fonts
 
