@@ -5,7 +5,7 @@
 %global upver        1.16.0
 Name:                netdata
 Version:             1.16.0
-Release:             4
+Release:             5
 Summary:             Real-time performance monitoring
 License:             GPLv3 and GPLv3+ and ASL 2.0 and CC-BY-4.0 and MIT and WTFPL
 URL:                 https://github.com/%{name}/%{name}/
@@ -18,6 +18,7 @@ Patch1:		     netdata-fix-python2-not-compatible-with-python3.patch
 # Remove embedded font
 Patch10:             netdata-remove-fonts-1.12.0.patch
 Patch11:             Fix-missing-extern-in-some-global-variables.patch
+Patch12:             fix-building-on-riscv64.patch
 BuildRequires:       zlib-devel git autoconf automake pkgconfig libuuid-devel freeipmi-devel httpd
 BuildRequires:       cppcheck gcc tinyxml2
 Requires:            nodejs
@@ -63,6 +64,9 @@ freeipmi plugin for netdata
 # Remove embedded font(added in requires)
 %patch10 -p1
 %patch11 -p1
+%ifarch riscv64
+%patch12 -p1
+%endif
 rm -rf web/fonts
 
 %build
@@ -218,6 +222,9 @@ fi
 %attr(4755,root,root) %{_libexecdir}/%{name}/plugins.d/freeipmi.plugin
 
 %changelog
+* Thu Nov 24 2022 misaka00251 <liuxin@iscas.ac.cn> - 1.16.0-5
+- Fix building on riscv64
+
 * Tue Jun 21 2022 Chenyx <chenyixiong3@huawei.com> - 1.16.0-4
 - License compliance rectification
 
